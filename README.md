@@ -34,3 +34,20 @@ It supports question answering with **source citations** for every answer.
 git clone <your-repo-url>
 cd smart-contract-assistant
 
+2-Create a virtual environment:
+
+python -m venv venv
+# Activate it
+# Linux / Mac
+source venv/bin/activate
+# Windows
+venv\Scripts\activate
+
+3-Install dependencies:
+
+pip install -r requirements.txt
+
+4-Set environment variables in .env:
+
+GROQ_API_KEY=<your-groq-api-key>
+HUGGINGFACE_API_TOKEN=<your-hf-token>
