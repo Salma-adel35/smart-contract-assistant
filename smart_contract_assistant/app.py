@@ -22,6 +22,8 @@ if "retriever" not in st.session_state:
     st.session_state.retriever = None
 if "current_files" not in st.session_state:
     st.session_state.current_files = []
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
 
 uploaded_files = st.file_uploader(
     "Upload PDF or DOCX contracts",
@@ -63,13 +65,34 @@ if st.button("Ask") and query:
     if st.session_state.rag_chain is None:
         st.warning("Upload at least one document first.")
     else:
-
         with st.spinner("Thinking..."):
             answer = st.session_state.rag_chain.invoke(query)
             docs = st.session_state.retriever.invoke(query)
 
-        st.markdown("### 📌 Answer")
-        st.write(answer)
+        
+        st.session_state.chat_history.append({
+            "question": query,
+            "answer": answer,
+            "sources": format_sources(docs)
+        })
 
-        st.markdown("### 📚 Sources")
-        st.write(format_sources(docs))
+
+
+if st.session_state.chat_history:
+
+    st.markdown("## 💬 Chat History")
+
+    for chat in st.session_state.chat_history:
+
+        with st.chat_message("user"):
+            st.write(chat["question"])
+
+        with st.chat_message("assistant"):
+            st.write(chat["answer"])
+            st.markdown("**Sources:**")
+            st.write(chat["sources"])
+
+   
+    if st.button("🗑 Clear Chat"):
+        st.session_state.chat_history = []
+        st.rerun()
