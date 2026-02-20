@@ -1,53 +1,205 @@
-# Smart Contract Summary & Q&A Assistant
+Smart Contract AI Assistant
+RAG-Based Contract Q&A + Automated LLM Evaluation
 
-**Domain:** LLM Pipelines, LangChain, Vector Stores, Gradio, LangServe  
-**Type:** Workshop Application Project (NVIDIA DLI Course Alignment)
+Overview
+Smart Contract AI Assistant is an intelligent Retrieval-Augmented Generation (RAG) system that allows users to:
 
-## Project Overview
-This project is a web application that allows users to upload PDF or DOCX contracts and interact with them using a smart assistant powered by large language models (LLMs).  
-It supports question answering with **source citations** for every answer.
+Upload PDF and DOCX contracts
 
----
+Ask natural language questions
 
-## Features
-- Upload PDF/DOCX contracts
-- Extract text from documents
-- Chunk documents for processing
-- Generate embeddings and store them in a FAISS vector store
-- Retrieval-Augmented Generation (RAG) for question answering
-- Display source snippets for each answer
-- Track session state in the app (uploaded documents, QA history)
-- Simple and clean UI using Streamlit
+Receive grounded answers using RAG
 
-### Optional Features (Not Required)
-- Summarization of uploaded contracts
-- Evaluation metrics for QA performance
-- Ability to answer general questions without uploading files
+Automatically evaluate answer quality
 
----
+Interact via a ChatGPT-style interface
 
-## Installation
+This project demonstrates real-world large language model (LLM) integration with structured evaluation and a modular architecture.
 
-1. Clone the repo:
+Architecture
+User
+  │
+  ▼
+Streamlit Chat UI
+  │
+  ▼
+RAG Pipeline
+  ├── Document Parsing
+  ├── Chunking
+  ├── Embeddings
+  ├── Vector Store
+  └── Retriever
+  │
+  ▼
+Groq LLM (Answer Generation)
+  │
+  ▼
+Evaluation Module (Groq Judge)
+  │
+  ▼
+Verdict + Score + Explanation
+Core Features
+Multi-Document Upload
+Supports PDF and DOCX files
 
-```bash
-git clone <your-repo-url>
+Multiple files can be uploaded simultaneously
+
+Automatic re-indexing when files are updated
+
+Retrieval-Augmented Generation (RAG)
+Document parsing and chunk splitting
+
+Embedding generation
+
+Vector database storage
+
+Context-aware answer generation
+
+Ensures answers are grounded in the contract content
+
+ChatGPT-Style Interface
+Questions appear as chat messages
+
+Latest answers displayed first
+
+Persistent chat history
+
+Clear conversational layout with a “Clear Chat” button
+
+Automated Answer Evaluation
+Evaluates each response using an LLM-based judge
+
+Criteria include:
+
+Accuracy
+
+Source grounding
+
+Logical consistency
+
+Returns structured output:
+
+Verdict: Correct / Incorrect
+
+Score: 0–100
+
+Explanation: Short reasoning
+
+Project Structure
+smart_contract_assistant/
+│
+├── app.py
+├── ingestion/
+│   ├── parser.py
+│   └── splitter.py
+├── retrieval/
+│   ├── vectorstore.py
+│   └── rag_chain.py
+├── evaluation/
+│   └── judge.py
+├── utils/
+│   └── helpers.py
+└── .env
+Tech Stack
+Python
+
+Streamlit
+
+LangChain
+
+Groq API
+
+Vector Store (FAISS or similar)
+
+RAG Architecture
+
+Regex-based Structured Output Parsing
+
+Environment Setup
+Clone Repository
+
+git clone https://github.com/your-username/smart-contract-assistant.git
 cd smart-contract-assistant
-
-2-Create a virtual environment:
+Create Virtual Environment
 
 python -m venv venv
-# Activate it
-# Linux / Mac
-source venv/bin/activate
-# Windows
-venv\Scripts\activate
-
-3-Install dependencies:
+venv\Scripts\activate   # Windows
+Install Dependencies
 
 pip install -r requirements.txt
+Add Environment Variables
 
-4-Set environment variables in .env:
+Create .env file:
 
-GROQ_API_KEY=<your-groq-api-key>
-HUGGINGFACE_API_TOKEN=<your-hf-token>
+GROQ_API_KEY=your_groq_api_key_here
+Run the App
+streamlit run app.py
+Then open in your browser:
+http://localhost:8501
+
+How It Works
+User uploads contracts
+
+System parses and splits documents
+
+Chunks are embedded and stored
+
+User asks a question
+
+Retriever fetches relevant context
+
+Groq LLM generates grounded answer
+
+Judge LLM evaluates the answer
+
+Verdict, score, and explanation are returned
+
+Why This Project Is Strong
+Real-world RAG implementation
+
+Modular and clean architecture
+
+LLM-based automatic evaluation
+
+Structured output handling
+
+Chat-style UI
+
+Production-ready logic
+
+Robust error handling
+
+Future Improvements
+Streaming token responses
+
+Asynchronous LLM calls
+
+Fine-tuned contract evaluation model
+
+User authentication
+
+Cloud deployment (AWS / GCP / Azure)
+
+UI theming & dark mode
+
+Evaluation confidence scoring
+
+Skills Demonstrated
+LLM Integration
+
+Retrieval-Augmented Generation
+
+Prompt Engineering
+
+Structured Output Handling
+
+Modular Backend Design
+
+Streamlit Frontend Development
+
+API Integration
+
+Error Handling & Debugging
+
+Author
+Developed as an AI-powered Smart Contract Assistant integrating RAG and automated LLM evaluation.
