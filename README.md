@@ -1,22 +1,24 @@
-Smart Contract AI Assistant
-RAG-Based Contract Q&A + Automated LLM Evaluation
+# Smart Contract AI Assistant
 
-Overview
+**RAG-Based Contract Q&A + Automated LLM Evaluation**
+
+---
+
+## Overview
+
 Smart Contract AI Assistant is an intelligent Retrieval-Augmented Generation (RAG) system that allows users to:
 
-Upload PDF and DOCX contracts
-
-Ask natural language questions
-
-Receive grounded answers using RAG
-
-Automatically evaluate answer quality
-
-Interact via a ChatGPT-style interface
+- Upload PDF and DOCX contracts  
+- Ask natural language questions  
+- Receive grounded answers using RAG  
+- Automatically evaluate answer quality  
+- Interact via a ChatGPT-style interface  
 
 This project demonstrates real-world large language model (LLM) integration with structured evaluation and a modular architecture.
 
-Architecture
+---
+
+## Architecture
 User
   │
   ▼
@@ -38,54 +40,44 @@ Evaluation Module (Groq Judge)
   │
   ▼
 Verdict + Score + Explanation
-Core Features
-Multi-Document Upload
-Supports PDF and DOCX files
 
-Multiple files can be uploaded simultaneously
 
-Automatic re-indexing when files are updated
+---
 
-Retrieval-Augmented Generation (RAG)
-Document parsing and chunk splitting
+## Core Features
 
-Embedding generation
+### Multi-Document Upload
+- Supports PDF and DOCX files  
+- Multiple files can be uploaded simultaneously  
+- Automatic re-indexing when files are updated  
 
-Vector database storage
+### Retrieval-Augmented Generation (RAG)
+- Document parsing and chunk splitting  
+- Embedding generation  
+- Vector database storage  
+- Context-aware answer generation  
+- Ensures answers are grounded in the contract content  
 
-Context-aware answer generation
+### ChatGPT-Style Interface
+- Questions appear as chat messages  
+- Latest answers displayed first  
+- Persistent chat history  
+- Clear conversational layout with a “Clear Chat” button  
 
-Ensures answers are grounded in the contract content
+### Automated Answer Evaluation
+- Evaluates each response using an LLM-based judge  
+- Criteria include:  
+  - Accuracy  
+  - Source grounding  
+  - Logical consistency  
+- Returns structured output:  
+  - Verdict: Correct / Incorrect  
+  - Score: 0–100  
+  - Explanation: Short reasoning  
 
-ChatGPT-Style Interface
-Questions appear as chat messages
+---
 
-Latest answers displayed first
-
-Persistent chat history
-
-Clear conversational layout with a “Clear Chat” button
-
-Automated Answer Evaluation
-Evaluates each response using an LLM-based judge
-
-Criteria include:
-
-Accuracy
-
-Source grounding
-
-Logical consistency
-
-Returns structured output:
-
-Verdict: Correct / Incorrect
-
-Score: 0–100
-
-Explanation: Short reasoning
-
-Project Structure
+## Project Structure
 smart_contract_assistant/
 │
 ├── app.py
@@ -100,42 +92,45 @@ smart_contract_assistant/
 ├── utils/
 │   └── helpers.py
 └── .env
-Tech Stack
-Python
 
-Streamlit
 
-LangChain
+---
 
-Groq API
+## Tech Stack
 
-Vector Store (FAISS or similar)
+- Python  
+- Streamlit  
+- LangChain  
+- Groq API  
+- Vector Store (FAISS or similar)  
+- RAG Architecture  
+- Regex-based Structured Output Parsing  
 
-RAG Architecture
+---
 
-Regex-based Structured Output Parsing
+## Environment Setup
 
-Environment Setup
-Clone Repository
+1. **Clone Repository**  
 
 git clone https://github.com/your-username/smart-contract-assistant.git
 cd smart-contract-assistant
-Create Virtual Environment
+
+2-Create Virtual Environment
 
 python -m venv venv
 venv\Scripts\activate   # Windows
-Install Dependencies
+
+3-Install Dependencies
 
 pip install -r requirements.txt
-Add Environment Variables
 
-Create .env file:
+4-Add Environment Variables
 
 GROQ_API_KEY=your_groq_api_key_here
+
 Run the App
+
 streamlit run app.py
-Then open in your browser:
-http://localhost:8501
 
 How It Works
 User uploads contracts
@@ -155,6 +150,7 @@ Judge LLM evaluates the answer
 Verdict, score, and explanation are returned
 
 Why This Project Is Strong
+
 Real-world RAG implementation
 
 Modular and clean architecture
@@ -170,6 +166,7 @@ Production-ready logic
 Robust error handling
 
 Future Improvements
+
 Streaming token responses
 
 Asynchronous LLM calls
@@ -185,6 +182,7 @@ UI theming & dark mode
 Evaluation confidence scoring
 
 Skills Demonstrated
+
 LLM Integration
 
 Retrieval-Augmented Generation
@@ -202,4 +200,7 @@ API Integration
 Error Handling & Debugging
 
 Author
+
 Developed as an AI-powered Smart Contract Assistant integrating RAG and automated LLM evaluation.
+ثبتىرن
+
