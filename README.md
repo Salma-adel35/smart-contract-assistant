@@ -110,21 +110,21 @@ smart_contract_assistant/
 
 ## Environment Setup
 
-1. **Clone Repository**  
+#1. **Clone Repository**  
 
 git clone https://github.com/your-username/smart-contract-assistant.git
 cd smart-contract-assistant
 
-2-Create Virtual Environment
+#2-Create Virtual Environment
 
 python -m venv venv
 venv\Scripts\activate   # Windows
 
-3-Install Dependencies
+#3-Install Dependencies
 
 pip install -r requirements.txt
 
-4-Add Environment Variables
+#4-Add Environment Variables
 
 GROQ_API_KEY=your_groq_api_key_here
 
@@ -132,7 +132,7 @@ Run the App
 
 streamlit run app.py
 
-How It Works
+##How It Works
 User uploads contracts
 
 System parses and splits documents
@@ -149,7 +149,7 @@ Judge LLM evaluates the answer
 
 Verdict, score, and explanation are returned
 
-Why This Project Is Strong
+##Why This Project Is Strong
 
 Real-world RAG implementation
 
@@ -165,7 +165,7 @@ Production-ready logic
 
 Robust error handling
 
-Future Improvements
+##Future Improvements
 
 Streaming token responses
 
@@ -181,7 +181,7 @@ UI theming & dark mode
 
 Evaluation confidence scoring
 
-Skills Demonstrated
+##Skills Demonstrated
 
 LLM Integration
 
@@ -199,7 +199,7 @@ API Integration
 
 Error Handling & Debugging
 
-Author
+##Author
 
 Developed as an AI-powered Smart Contract Assistant integrating RAG and automated LLM evaluation.
 ثبتىرن
